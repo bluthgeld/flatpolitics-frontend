@@ -7,7 +7,7 @@ class CivicInfoContainer extends Component {
     super()
 
     this.state = {
-      civicsdata: {}
+      civicsdata: []
     }
 
   }
@@ -19,10 +19,31 @@ class CivicInfoContainer extends Component {
   }
 
   cardData = (data) =>  {
-    let x = 0
-    let l = data.officials.length
-    debugger
 
+    let x = 0
+    let l = data.officials.length - 1
+    let civicsdata = []
+    while(x <= l) {
+      let pol = {}
+      if (x >= 3) {
+        pol.title = data.offices[x - 1].name
+        pol.name = data.officials[x].name
+        pol.party = data.officials[x].party
+        pol.phone = data.officials[x].phones[0]
+        pol.url = data.officials[x].urls[0]
+        civicsdata.push(pol)
+        x = x + 1
+      } else {
+        pol.title = data.offices[x].name
+        pol.name = data.officials[x].name
+        pol.party = data.officials[x].party
+        pol.phone = data.officials[x].phones[0]
+        pol.url = data.officials[x].urls[0]
+        civicsdata.push(pol)
+        x = x + 1
+      }
+    }
+    this.setState( {civicsdata: civicsdata})
   }
 
   render() {
@@ -39,10 +60,22 @@ class CivicInfoContainer extends Component {
 
 export default CivicInfoContainer
 
-// while(x <= l - 1) {
-//     if (x = 3){
+// while(x <= l) {
+//     if (x === 3){
+//       pol.title = data.offices[2].name
+//       pol.name = data.officials[x].name
+//       pol.party = data.officials[x].party
+//       pol.phone = data.officials[x].phones
+//       pol.url = data.officials[x].urls[0]
+//       civicsdata.push(pol)
 //       x += 1
 //     }else{
+//       pol.title = data.offices[x].name
+//       pol.name = data.officials[x].name
+//       pol.party = data.officials[x].party
+//       pol.phone = data.officials[x].phones
+//       pol.url = data.officials[x].urls[0]
+//       civicsdata.push(pol)
 //       x += 1
 //     }
-// }
+//   }
