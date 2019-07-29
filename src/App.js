@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Nav from './Nav.js'
 import NewsContainer from './NewsContainer.js'
 import TwitterContainer from './TwitterContainer.js'
+import Footer from './Footer.js'
+import CivicInfo from './CivicInfo.js'
 
 class App extends Component {
 
@@ -11,39 +11,31 @@ class App extends Component {
     super()
 
     this.state = {
-      postal_code: 20902
+      user: {},
+      postalCode: 20902
     }
-
   }
 
 
   render() {
     return (
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-12">
-            <Nav />
+      <div className="container-fluid">
+        <Nav />
+        <div className="row">
+          <div className="col-sm-8">
+            THIS IS WHERE OUR GRAPHS WILL GO
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-8">
-            One of Two columns
-          </div>
-          <div class="col-sm-4">
+          <div className="col-sm-4">
             <NewsContainer />
             <TwitterContainer />
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12">
-            Footer
-          </div>
-        </div>
+        <CivicInfo postalCode={this.state.postalCode} />
+        <Footer />
       </div>
-
     )
   }
+
 
 }
 
