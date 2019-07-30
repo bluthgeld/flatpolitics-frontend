@@ -37,12 +37,11 @@ class App extends Component {
         <Nav />
           <div className="row">
             <div className="col-sm-8">
-              <Route exact path="/about" component={About} />
-              <Route path="/" render={() => { return <PollContainer
+              <Route exact path="/" render={() => { return <PollContainer
                  allPolls={this.state.allPolls}
                  />
              }} />
-
+              <Route exact path="/about" component={About} />
             </div>
             <div className="col-sm-4">
               <NewsContainer />
