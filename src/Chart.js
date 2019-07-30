@@ -6,17 +6,17 @@ class Chart extends Component {
         super(props)
         this.state = {
             chartData: {
-                labels: 
+                labels:
                     this.props.pollObj.poll_data_favorabilities.map(candidate => {
                       return candidate.candidate.name
                     }),
                 datasets: [{
                     label: 'Favorable',
-                    data: 
+                    data:
                         this.props.pollObj.poll_data_favorabilities.map(candidate => {
                             return candidate.favorable
                         }),
-                        
+
                     backgroundColor: [
                         "rgba(32, 46, 233, 1)",
                         "rgba(32, 46, 233, 1)",
@@ -30,7 +30,7 @@ class Chart extends Component {
                 },
                 {
                     label: 'Unfavorable',
-                    data: 
+                    data:
                         this.props.pollObj.poll_data_favorabilities.map(candidate => {
                             return candidate.unfavorable
                         }),
@@ -47,7 +47,7 @@ class Chart extends Component {
                 },
                 {
                     label: "Don't Know",
-                    data: 
+                    data:
                         this.props.pollObj.poll_data_favorabilities.map(candidate => {
                             return candidate.unfavorable
                         }),
@@ -71,12 +71,12 @@ class Chart extends Component {
                 <div className="chart">
                    <Bar
                     data={this.state.chartData}
-                    options={{ 
+                    options={{
                         title:{
                             display: true,
                             text: `${this.props.pollObj.pollster}: ${this.props.pollObj.question} | ${this.props.pollObj.start_date}-${this.props.pollObj.end_date}, ${this.props.pollObj.year}`,
                             fontSize: 18
-                    
+
                         },
                         legend: {
                             display: true,
@@ -94,11 +94,11 @@ class Chart extends Component {
                             }]
                         }
                     }}
-                /> 
+                />
                 </div>
             )
-        }  
+        }
     }
-    
+
 
 export default Chart
