@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Nav from './Nav.js'
 import NewsContainer from './NewsContainer.js'
 import Footer from './Footer.js'
+import PollContainer from './PollContainer.js'
 import CivicInfoContainer from './CivicInfoContainer.js'
+
 
 class App extends Component {
 
@@ -11,10 +13,21 @@ class App extends Component {
 
     this.state = {
       user: {},
-      postalCode: 20902
+      postalCode: 20902,
+      allPolls: [],
+      currentPoll: {}
     }
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3000/polls')
+    .then(res => res.json())
+    .then(pollData => {
+      
+      this.setState({allPolls: pollData})
+    
+    })
+  }
 
   render() {
     return (
@@ -22,7 +35,10 @@ class App extends Component {
         <Nav />
         <div className="row">
           <div className="col-sm-8">
-            THIS IS WHERE OUR GRAPHS WILL GO
+            <PollContainer
+             allPolls={this.state.allPolls}
+
+             />
           </div>
           <div className="col-sm-4">
             <NewsContainer />
