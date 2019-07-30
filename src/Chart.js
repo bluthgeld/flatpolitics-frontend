@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Bar, Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 class Chart extends Component {
     constructor(props){
@@ -7,7 +7,6 @@ class Chart extends Component {
         this.state = {
             chartData: {
                 labels: 
-                    // "Joe Biden", "Elizabeth Warren", "Beto O'Rourke", "Pete Buttigieg", "Marianne Williamson"
                     this.props.pollObj.poll_data_favorabilities.map(candidate => {
                       return candidate.candidate.name
                     }),
@@ -75,25 +74,31 @@ class Chart extends Component {
                     options={{ 
                         title:{
                             display: true,
-                            text: this.props.pollObj.pollster,
-                            fontSize: 25
+                            text: `${this.props.pollObj.pollster}: ${this.props.pollObj.question} | ${this.props.pollObj.start_date}-${this.props.pollObj.end_date}, ${this.props.pollObj.year}`,
+                            fontSize: 18
                     
                         },
-                    legend: {
-                        display: true,
-                        position: 'right',
-                        // labels:{
-                        //     fontColor: '#000'
-                        // }
-                    }}}
+                        legend: {
+                            display: true,
+                            position: 'right'
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                },
+                                xAxes: [{
+                                    barPercentage: 0.25,
+                                    barThickness: 1
+                                }]
+                            }]
+                        }
+                    }}
                 /> 
                 </div>
             )
         }  
-    
     }
     
-        
-
 
 export default Chart
