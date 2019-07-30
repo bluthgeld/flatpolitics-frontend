@@ -8,15 +8,12 @@ const PollContainer = (props) => {
     return (
         <div>
             {
-                props.allPolls.map(pollObj => <Poll 
+                props.allPolls.map(pollObj => <Chart 
                     key={pollObj.id}
                     pollObj={pollObj}
                     />  
                 )
            }   
-             <Chart 
-                allPolls={props.allPolls}
-                />
         </div>  
           
           
