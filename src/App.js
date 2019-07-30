@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './Nav.js'
 import NewsContainer from './NewsContainer.js'
-import TwitterContainer from './TwitterContainer.js'
 import Footer from './Footer.js'
 import CivicInfoContainer from './CivicInfoContainer.js'
 
@@ -27,7 +26,6 @@ class App extends Component {
           </div>
           <div className="col-sm-4">
             <NewsContainer />
-            <TwitterContainer />
           </div>
         </div>
         <CivicInfoContainer postalCode={this.state.postalCode} />
