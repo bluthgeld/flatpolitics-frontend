@@ -49,7 +49,7 @@ class Chart extends Component {
                     label: "Don't Know",
                     data:
                         this.props.pollObj.poll_data_favorabilities.map(candidate => {
-                            return candidate.unfavorable
+                            return candidate.dont_know
                         }),
                     backgroundColor: [
                         "rgba(133, 133, 133, 1)",

@@ -10,7 +10,6 @@ class NewsContainer extends Component {
       this.state = {
         newsdata: []
       }
-
     }
 
 
