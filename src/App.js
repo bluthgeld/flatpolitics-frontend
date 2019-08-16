@@ -15,7 +15,7 @@ class App extends Component {
 
     this.state = {
       user: {},
-      postalCode: 20902,
+      postalCode: 10576,
       allPolls: [],
       currentPoll: {}
     }
