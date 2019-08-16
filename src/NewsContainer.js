@@ -28,7 +28,7 @@ class NewsContainer extends Component {
       return (
         <div>
           <h3>News</h3>
-          <div class="list-group">
+          <div className="list-group">
             {this.state.newsdata.map(newsItem => <NewsItem
               newsItem={newsItem}
               key={newsItem.id}
